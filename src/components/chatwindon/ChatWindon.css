@@ -1,0 +1,91 @@
+.chatWindow {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chatWindow--header {
+  height: 60px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chatWindow--headerinfor {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.chatWindow--avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.chatWindow--name {
+  font-size: 17px;
+  color: #fff;
+}
+
+.chatWindow--headerbuttons {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.chatWindow--headerbuttons {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.chatWindow--body {
+  flex: 1;
+  overflow: auto;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-image: url("https://imagens.net.br/wp-content/uploads/2023/09/como-adicionar-fundos-divertidos-e-personalizados-aos-seus-chats-do-whatsapp-0.jpg");
+}
+
+.chatWindow--footer {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.pre {
+  display: flex;
+  margin: 0 15px;
+}
+
+.chatWindow--btn {
+}
+
+.inputarea {
+  flex: 1;
+}
+
+.chatWindow--input {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  outline: 0;
+  background-color: #fff;
+  border-radius: 20px;
+  font-size: 15px;
+  color: #4a4a4a;
+  padding-left: 15px;
+}
+.pos {
+  display: flex;
+  margin: 0 15px;
+}

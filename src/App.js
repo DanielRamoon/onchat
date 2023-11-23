@@ -51,9 +51,9 @@ function App() {
           />
           <div className="header--buttons">
             <div className="header--btn">
-              <DonutLargeIcon style={{ color: "#919191" }} />
-              <ChatIcon style={{ color: "#919191" }} />
-              <MoreVertIcon style={{ color: "#919191" }} />
+              <DonutLargeIcon style={{ color: "#fff" }} />
+              <ChatIcon style={{ color: "#fff" }} />
+              <MoreVertIcon style={{ color: "#fff" }} />
             </div>
           </div>
         </header>
@@ -70,6 +70,8 @@ function App() {
           {checkList.map((item, key) => (
             <CheckListItem
               key={key}
+              data={item}
+              // active={activeChat.chatid === checkList[key].chatid}
               onClick={() => setActiveChat(checkList[key])}
             />
           ))}

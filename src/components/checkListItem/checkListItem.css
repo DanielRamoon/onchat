@@ -6,7 +6,11 @@
 }
 
 .chatListItem:hover {
-  background-color: #f5f5f5;
+  background-color: #5f9ea0;
+}
+
+.chatListItem.active {
+  background-color: #5f9ea0;
 }
 
 .chatListItem--avatar {

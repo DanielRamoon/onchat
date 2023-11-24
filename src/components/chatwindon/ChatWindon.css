@@ -54,6 +54,16 @@
   background-size: cover;
   background-position: center;
   background-image: url("https://imagens.net.br/wp-content/uploads/2023/09/como-adicionar-fundos-divertidos-e-personalizados-aos-seus-chats-do-whatsapp-0.jpg");
+  padding: 20px 30px;
+}
+
+.chatWindow--body::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.chatWindow--body::-webkit-scrollbar-thumb {
+  background-color: rgb(25, 25, 112, 0.6);
 }
 
 .chatWindow--footer {

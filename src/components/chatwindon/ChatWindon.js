@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
@@ -8,9 +8,12 @@ import SendIcon from "@mui/icons-material/Send";
 import MicNoneIcon from "@mui/icons-material/MicNone";
 import EmojiPicker from "emoji-picker-react";
 
+import MenssageItem from "../messageItem/MenssageItem";
+
 import "./ChatWindon.css";
 
-function ChatWindon() {
+function ChatWindon({ user }) {
+  const body = useRef();
   let recognition = null;
   let speechRecognition =
     window.webkitSpeechRecognition || window.speechRecognition;
@@ -22,6 +25,42 @@ function ChatWindon() {
   const [emojiOpen, setEmojiOpen] = useState(false);
   const [text, setText] = useState("");
   const [listening, setListening] = useState(false);
+  const [list, setList] = useState([
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+    { author: 12345, body: "Olá,tudo bem ?" },
+    { author: 123, body: "Sim , e com você ??" },
+    { author: 12345, body: "Estou bem!" },
+  ]);
+
+  useEffect(() => {
+    if (body.current.scrollHeight > body.current.offsetHeight) {
+      body.current.scrollTop =
+        body.current.scrollHeight - body.current.offsetHeight;
+    }
+  }, [list]);
 
   const handleClickEmoji = (e, objectEmoji) => {
     setText(text + objectEmoji.emoji);
@@ -81,7 +120,11 @@ function ChatWindon() {
         </div>
       </div>
 
-      <div className="chatWindow--body"></div>
+      <div ref={body} className="chatWindow--body">
+        {list.map((item, key) => (
+          <MenssageItem key={key} data={item} user={user} />
+        ))}
+      </div>
 
       <div
         className="chatWindow--emojiarea"

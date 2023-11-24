@@ -39,16 +39,18 @@ function App() {
   ]);
 
   const [activeChat, setActiveChat] = useState({});
+  const [user, setUser] = useState({
+    id: 12345,
+    name: "Daniel",
+    avatar:
+      "https://www.jmatosbebidas.com.br/wp-content/uploads/2016/11/avatar-masculino.png",
+  });
 
   return (
     <div className="App-window">
       <div className="sidebar">
         <header>
-          <img
-            src="https://www.jmatosbebidas.com.br/wp-content/uploads/2016/11/avatar-masculino.png"
-            alt="image"
-            className="header--avatar"
-          />
+          <img src={user.avatar} alt="image" className="header--avatar" />
           <div className="header--buttons">
             <div className="header--btn">
               <DonutLargeIcon style={{ color: "#fff" }} />
@@ -78,7 +80,11 @@ function App() {
         </div>
       </div>
       <div className="contentarea">
-        {Object.keys(activeChat).length !== 0 ? <ChatWindon /> : <ChatInfor />}
+        {Object.keys(activeChat).length !== 0 ? (
+          <ChatWindon user={user} />
+        ) : (
+          <ChatInfor />
+        )}
       </div>
     </div>
   );

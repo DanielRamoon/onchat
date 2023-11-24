@@ -45,7 +45,7 @@ function App() {
       <div className="sidebar">
         <header>
           <img
-            src="https://img.freepik.com/vetores-premium/avatar-icon002_750950-52.jpg"
+            src="https://www.jmatosbebidas.com.br/wp-content/uploads/2016/11/avatar-masculino.png"
             alt="image"
             className="header--avatar"
           />

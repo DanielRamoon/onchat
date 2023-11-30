@@ -7,44 +7,36 @@ import SearchIcon from "@mui/icons-material/Search";
 import CheckListItem from "./components/checkListItem/checkListItem";
 import ChatInfor from "./components/chatInfor/ChatInfor";
 import ChatWindon from "./components/chatwindon/ChatWindon";
+import NewChat from "./components/nweChat/NewChat";
+import Login from "./components/login/Login";
+import Api from "./api";
+
 import "./App.css";
 
 function App() {
-  const [checkList, setCheckList] = useState([
-    {
-      id: 1,
-      title: "Bianca Passos",
-      img: "https://img.freepik.com/vetores-premium/avatar-icon002_750950-52.jpg",
-    },
-    {
-      id: 1,
-      title: "Bianca Passos",
-      img: "https://img.freepik.com/vetores-premium/avatar-icon002_750950-52.jpg",
-    },
-    {
-      id: 2,
-      title: "Vitória Santos",
-      img: "https://img.freepik.com/vetores-premium/avatar-icon002_750950-52.jpg",
-    },
-    {
-      id: 3,
-      title: "Cleide Santos",
-      img: "https://img.freepik.com/vetores-premium/avatar-icon002_750950-52.jpg",
-    },
-    {
-      id: 4,
-      title: "Doralice Santos",
-      img: "https://img.freepik.com/vetores-premium/avatar-icon002_750950-52.jpg",
-    },
-  ]);
+  const [checkList, setCheckList] = useState([]);
 
   const [activeChat, setActiveChat] = useState({});
-  const [user, setUser] = useState({
-    id: 12345,
-    name: "Daniel",
-    avatar:
-      "https://www.jmatosbebidas.com.br/wp-content/uploads/2016/11/avatar-masculino.png",
-  });
+  const [user, setUser] = useState(null);
+  const [shownewChat, setShowNewChat] = useState(false);
+
+  const handleOpen = () => {
+    setShowNewChat(true);
+  };
+
+  const handleLoginData = async (u) => {
+    let newUser = {
+      id: u.uid || u.id,
+      name: u.displayName || u.name,
+      avatar: u.photoURL || u.avatar,
+    };
+    await Api.addUser(newUser);
+    setUser(newUser);
+  };
+
+  if (user === null) {
+    return <Login onReceive={handleLoginData} />;
+  }
 
   return (
     <div className="App-window">
@@ -52,13 +44,19 @@ function App() {
         <header>
           <img src={user.avatar} alt="image" className="header--avatar" />
           <div className="header--buttons">
-            <div className="header--btn">
+            <div className="header--btn" onClick={handleOpen}>
               <DonutLargeIcon style={{ color: "#fff" }} />
               <ChatIcon style={{ color: "#fff" }} />
               <MoreVertIcon style={{ color: "#fff" }} />
             </div>
           </div>
         </header>
+        <NewChat
+          checkList={checkList}
+          user={user}
+          show={shownewChat}
+          setShow={setShowNewChat}
+        />
         <div className="search">
           <div className="search--input">
             <SearchIcon fontSize="small" style={{ color: "#919191" }} />
@@ -69,12 +67,11 @@ function App() {
           </div>
         </div>
         <div className="chatlist">
-          {checkList.map((item, key) => (
+          {checkList.map((item) => (
             <CheckListItem
-              key={key}
+              key={item.id}
               data={item}
-              // active={activeChat.chatid === checkList[key].chatid}
-              onClick={() => setActiveChat(checkList[key])}
+              onClick={() => setActiveChat(item)}
             />
           ))}
         </div>

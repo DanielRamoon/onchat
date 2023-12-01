@@ -30,7 +30,7 @@ function NewChat({ user, checkList, show, setShow }) {
   };
 
   return (
-    <div className="newChat" style={{ left: show ? 0 : -485 }}>
+    <div className="newChat" style={{ left: show ? 0 : -695 }}>
       <div className="newChat--head">
         <div className="newChat--backButton" onClick={handleClose}>
           <ArrowBackIcon style={{ color: "#fff" }} />

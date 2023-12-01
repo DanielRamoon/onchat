@@ -20,7 +20,7 @@ const firebaseApi = {
       const result = await signInWithPopup(getAuth(firebaseApp), provider);
       return result;
     } catch (error) {
-      console.error("Erro ao autenticar via Google:", error);
+      console.error("Erro na autenticar via Google:", error);
       throw error;
     }
   },

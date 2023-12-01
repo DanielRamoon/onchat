@@ -13,12 +13,12 @@ function MenssageItem({ data, user }) {
       <div
         className="messageItem"
         style={{
-          backgroundColor: user.id === data.author ? "#4682b4" : "#fff",
+          backgroundColor: user.id === data.author ? "#4682b4" : "#ffff",
         }}
       >
         <div
           className="messageText"
-          style={{ color: user.id === data.author ? "#fff" : "#000" }}
+          style={{ color: user.id === data.author ? "#fff" : "#000000" }}
         >
           {" "}
           {data.body}

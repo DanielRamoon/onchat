@@ -13,7 +13,7 @@ function CheckListItem({ onClick, active, data }) {
 
         <div className="chatListItem--line">
           <div className="chatListItem--lastMsg">
-            <p>opa, Tudo bem?</p>
+            <p>opa, Tudo bem??</p>
           </div>
         </div>
       </div>

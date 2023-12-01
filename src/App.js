@@ -46,7 +46,7 @@ function App() {
           <div className="header--buttons">
             <div className="header--btn" onClick={handleOpen}>
               <DonutLargeIcon style={{ color: "#fff" }} />
-              <ChatIcon style={{ color: "#fff" }} />
+              <ChatIcon style={{ color: "#ffff" }} />
               <MoreVertIcon style={{ color: "#fff" }} />
             </div>
           </div>
